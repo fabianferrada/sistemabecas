@@ -1,2 +1,2 @@
 docker pull mysql:oraclelinux9
-docker run --name sistemabecas-db -p 3306:3306 -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD -e MYSQL_DATABASE=sistemabecas -d mysql:oraclelinux9
+docker run --name sistemabecas-db -p 3306:3306 -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD -e MYSQL_DATABASE=sistemabecas -v ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d -d mysql:oraclelinux9

@@ -1,3 +1,5 @@
+USE sistemabecas;
+
 CREATE TABLE Estudiante (
 	Id INT NOT NULL,
 	Nombres VARCHAR(255) NOT NULL,
