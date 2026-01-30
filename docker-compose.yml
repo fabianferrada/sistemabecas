@@ -9,7 +9,7 @@ services:
         ports:
             - 3306:3306
         volumes:
-            - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+            - ./sistemabecas-db:/docker-entrypoint-initdb.d
     
     backend:
         container_name: sistemabecas-backend
