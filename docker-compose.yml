@@ -1,0 +1,21 @@
+services:
+    db:
+        container_name: sistemabecas-db
+        image: mysql:oraclelinux9
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: sistemabecas
+        ports:
+            - 3306:3306
+        volumes:
+            - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    
+    backend:
+        container_name: sistemabecas-backend
+        build: ./sistemabecas-backend
+        restart: always
+        ports:
+            - 8080:8080
+        depends_on:
+            - db

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/estudiante")
 public class EstudianteController {
 	@GetMapping("/{id}")
-	public String obtenerPorId(@PathVariable int id) {
+	public int obtenerPorId(@PathVariable int id) {
 		return id;
 	}
 }
