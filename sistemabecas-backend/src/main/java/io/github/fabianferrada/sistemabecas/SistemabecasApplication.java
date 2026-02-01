@@ -9,5 +9,5 @@ public class SistemabecasApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SistemabecasApplication.class, args);
 	}
-
+	
 }
