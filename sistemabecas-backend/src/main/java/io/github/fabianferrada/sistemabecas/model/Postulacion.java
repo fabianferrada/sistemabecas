@@ -1,9 +1,12 @@
 package io.github.fabianferrada.sistemabecas.model;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Postulacion {
@@ -14,27 +17,11 @@ public class Postulacion {
 	private String estado;
 	private String comentario;
 	
-	public int getId() {
-		return this.id;
-	}
+	@OneToOne
+	@JoinColumn(name="IdBeca")
+	private Beca beca;
 	
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-	public String getEstado() {
-		return this.estado;
-	}
-	
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-	
-	public String getComentario() {
-		return this.comentario;
-	}
-	
-	public void setComentario(String comentario) {
-		this.comentario = comentario;
-	}
+	@ManyToOne
+	@JoinColumn(name="IdEstudiante")
+	private Estudiante estudiante;
 }

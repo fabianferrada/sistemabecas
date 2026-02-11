@@ -4,6 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Apelacion {
@@ -14,27 +17,11 @@ public class Apelacion {
 	private String titulo;
 	private String descripcion;
 	
-	public int getId() {
-		return this.id;
-	}
+	@ManyToOne
+	@JoinColumn(name="IdEstudiante")
+	private Estudiante estudiante;
 	
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-	public String getTitulo() {
-		return this.titulo;
-	}
-	
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-	
-	public String getDescripcion() {
-		return this.descripcion;
-	}
-	
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
+	@OneToOne
+	@JoinColumn(name="IdPostulacion")
+	private Postulacion postulacion;
 }

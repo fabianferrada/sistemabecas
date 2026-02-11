@@ -4,6 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class DocumentoDePostulacion {
@@ -13,19 +16,11 @@ public class DocumentoDePostulacion {
 	
 	private String url;
 	
-	public int getId() {
-		return this.id;
-	}
+	@ManyToOne
+	@JoinColumn(name="IdPostulacion")
+	private Postulacion postulacion;
 	
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-	public String getUrl() {
-		return this.url;
-	}
-	
-	public void setUrl(String url) {
-		this.url = url;
-	}
+	@OneToOne
+	@JoinColumn(name="IdDocumento")
+	private Documentos documento;
 }

@@ -25,9 +25,7 @@ CREATE TABLE Beca (
 	Descripcion VARCHAR(2048) NOT NULL,
 	FechaMinimaPostulacion DATETIME NOT NULL,
 	FechaMaximaPostulacion DATETIME NOT NULL,
-	IdAdministrador INT NOT NULL,
-	PRIMARY KEY (Id),
-	FOREIGN KEY (IdAdministrador) REFERENCES Administrador(Id)
+	PRIMARY KEY (Id)
 );
 
 CREATE TABLE Postulacion (

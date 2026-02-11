@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Documentos {
@@ -14,27 +16,7 @@ public class Documentos {
 	private String nombre;
 	private String descripcion;
 	
-	public int getId() {
-		return this.id;
-	}
-	
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-	public String getNombre() {
-		return this.nombre;
-	}
-	
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	
-	public String getDescripcion() {
-		return this.descripcion;
-	}
-	
-	public void setDescripcion() {
-		this.descripcion = descripcion;
-	}
+	@ManyToOne
+	@JoinColumn(name="IdBeca")
+	private Beca beca;
 }
