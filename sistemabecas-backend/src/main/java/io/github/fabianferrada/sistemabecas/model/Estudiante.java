@@ -4,6 +4,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Estudiante {
@@ -16,6 +21,15 @@ public class Estudiante {
 	private int rut;
 	private String email;
 	private String contrasena;
+	
+	// Join tables
+	@ManyToMany
+	@JoinTable(
+		name = "EstudianteRealizaPostulacion",
+		joinColumns = @JoinColumn(name = "IdEstudiante"),
+		inverseJoinColumns = @JoinColumn(name = "IdPostulacion")
+	)
+	private Set<Postulacion> postulaciones = new HashSet<>();
 	
 	public Integer getId() {
 		return this.id;
@@ -63,5 +77,9 @@ public class Estudiante {
 	
 	public void setContrasena(String contrasena) {
 		this.contrasena = contrasena;
+	}
+	
+	public Set<Postulacion> getPostulaciones() {
+		return this.postulaciones;
 	}
 }
