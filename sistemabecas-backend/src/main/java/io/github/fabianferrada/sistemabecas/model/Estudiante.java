@@ -21,4 +21,52 @@ public class Estudiante {
 	private int rut;
 	private String email;
 	private String contrasena;
+	
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
+	public Integer getId() {
+		return this.id;
+	}
+	
+	public void setNombres(String nombres) {
+		this.nombres = nombres;
+	}
+	
+	public String getNombres() {
+		return this.nombres;
+	}
+	
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
+	}
+	
+	public String getApellidos() {
+		return this.apellidos;
+	}
+	
+	public void setRut(int rut) {
+		this.rut = rut;
+	}
+	
+	public int getRut() {
+		return this.rut;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public String getEmail() {
+		return this.email;
+	}
+	
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
+	
+	public String getContrasena() {
+		return this.contrasena;
+	}
 }
