@@ -15,4 +15,36 @@ public class Administrador {
 	private String apellidos;
 	private String email;
 	private String contrasena;
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public int getId() {
+		return this.id;
+	}
+	
+	public void setNombres(String nombres) {
+		this.nombres = nombres;
+	}
+	
+	public String getNombres() {
+		return this.nombres;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public String getEmail() {
+		return this.email;
+	}
+	
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
+	
+	public String getContrasena() {
+		return this.contrasena;
+	}
 }
