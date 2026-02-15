@@ -24,4 +24,44 @@ public class Postulacion {
 	@ManyToOne
 	@JoinColumn(name="IdEstudiante")
 	private Estudiante estudiante;
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public int getId() {
+		return this.id;
+	}
+	
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+	
+	public String getEstado() {
+		return this.estado;
+	}
+	
+	public void setComentario(String comentario) {
+		this.comentario = comentario;
+	}
+	
+	public String getComentario() {
+		return this.comentario;
+	}
+	
+	public void setBeca(Beca beca) {
+		this.beca = beca;
+	}
+	
+	public Beca getBeca() {
+		return this.beca;
+	}
+	
+	public void setEstudiante(Estudiante estudiante) {
+		this.estudiante = estudiante;
+	}
+	
+	public Estudiante getEstudiante() {
+		return this.estudiante;
+	}
 }
