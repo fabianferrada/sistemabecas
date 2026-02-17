@@ -1,5 +1,6 @@
 package io.github.fabianferrada.sistemabecas.service;
 
+import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -20,8 +21,12 @@ public class ArchivosService {
 		
 		try {
 			Files.createDirectories(this.uploadDir);
+		} catch (FileAlreadyExistsException e) {
+			// Do nothing
 		} catch (Exception e) {
-			throw new RuntimeException("Error creating uploads directory");
+			throw new RuntimeException(
+				"Error creating uploads directory: " + e.toString() + ", " + e.getMessage()
+			);
 		}
 	}
 	
@@ -37,10 +42,14 @@ public class ArchivosService {
 				StandardCopyOption.REPLACE_EXISTING
 			);
 		} catch (Exception e) {
-			throw new RuntimeException("Error creating file in disk");
+			throw new RuntimeException(
+				"Error creating file in disk: " +
+				e.toString() + ", " +  e.getMessage() +
+				". Target file location was " + targetLocation.toString()
+			);
 		}
 		
-		return filename;
+		return targetLocation.toString();
 	}
 	
 	public Resource getFile(String fileDir) {
@@ -54,7 +63,7 @@ public class ArchivosService {
 				throw new RuntimeException("Error obtaining the file");
 			}
 		} catch (Exception e) {
-			throw new RuntimeException("Error obtaining the file");
+			throw new RuntimeException("Error obtaining the file: " + e.getMessage());
 		}
 	}
 	
@@ -62,7 +71,7 @@ public class ArchivosService {
 		try {
 			Files.deleteIfExists(Paths.get(fileDir).toAbsolutePath().normalize());
 		} catch (Exception e) {
-			throw new RuntimeException("Error while deleting the file");
+			throw new RuntimeException("Error while deleting the file: " + e.getMessage());
 		}
 	}
 }

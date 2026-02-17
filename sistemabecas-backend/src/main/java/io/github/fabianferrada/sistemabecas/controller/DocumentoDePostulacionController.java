@@ -37,12 +37,14 @@ public class DocumentoDePostulacionController {
 	@Autowired
 	private DocumentosRepository documentosRepository;
 	
+	@Autowired
 	private ArchivosService archivosService;
 	
-	@PostMapping("/crear")
+	@PostMapping("/crear/{idPostulacion}/{idDocumento}")
 	public @ResponseBody DocumentoDePostulacion crearDocumentoPostulacion(
 		@RequestParam("file") MultipartFile file,
-		@RequestBody DocumentosDePostulacionDto dto
+		@PathVariable int idPostulacion,
+		@PathVariable int idDocumento
 	) {
 		DocumentoDePostulacion documento = new DocumentoDePostulacion();
 		
@@ -50,10 +52,10 @@ public class DocumentoDePostulacionController {
 		
 		documento.setUrl(path);
 		documento.setPostulacion(
-			postulacionRepository.findById(dto.getIdPostulacion()).orElse(null)
+			postulacionRepository.findById(idPostulacion).orElse(null)
 		);
 		documento.setDocumento(
-			documentosRepository.findById(dto.getIdDocumento()).orElse(null)
+			documentosRepository.findById(idDocumento).orElse(null)
 		);
 		
 		return documentoDePostulacionRepository.save(documento);
@@ -105,8 +107,15 @@ public class DocumentoDePostulacionController {
 	
 	@DeleteMapping("eliminar/{id}")
 	public @ResponseBody StandardResponse eliminarDocumentoPostulacion(@PathVariable int id) {
-		documentoDePostulacionRepository.deleteById(id);
+		DocumentoDePostulacion doc = documentoDePostulacionRepository.findById(id).orElse(null);
 		
+		if (doc == null) {
+			return new StandardResponse(true);
+		}
+		
+		archivosService.deleteFile(doc.getUrl());
+		
+		documentoDePostulacionRepository.deleteById(id);
 		return new StandardResponse(true);
 	}
 }
