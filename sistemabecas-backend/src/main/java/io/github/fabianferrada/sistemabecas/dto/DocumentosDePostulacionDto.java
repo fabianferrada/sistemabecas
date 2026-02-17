@@ -1,18 +1,8 @@
 package io.github.fabianferrada.sistemabecas.dto;
 
 public class DocumentosDePostulacionDto {
-	private String url;
-	
 	int idPostulacion;
 	int idDocumento;
-	
-	public void setUrl(String url) {
-		this.url = url;
-	}
-	
-	public String getUrl() {
-		return this.url;
-	}
 	
 	public void setIdPostulacion(int idPostulacion) {
 		this.idPostulacion = idPostulacion;

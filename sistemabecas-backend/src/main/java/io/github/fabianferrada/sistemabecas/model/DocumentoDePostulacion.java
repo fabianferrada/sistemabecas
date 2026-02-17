@@ -23,4 +23,36 @@ public class DocumentoDePostulacion {
 	@OneToOne
 	@JoinColumn(name="IdDocumento")
 	private Documentos documento;
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public int getId() {
+		return this.id;
+	}
+	
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	
+	public String getUrl() {
+		return this.url;
+	}
+	
+	public void setPostulacion(Postulacion postulacion) {
+		this.postulacion = postulacion;
+	}
+	
+	public Postulacion getPostulacion() {
+		return this.postulacion;
+	}
+	
+	public void setDocumento(Documentos documento) {
+		this.documento = documento;
+	}
+	
+	public Documentos getDocumento() {
+		return this.documento;
+	}
 }
