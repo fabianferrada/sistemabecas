@@ -17,6 +17,7 @@ services:
         restart: always
         environment:
             MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            JWT_TOKEN: ${JWT_TOKEN}
         ports:
             - 8080:8080
         volumes:
