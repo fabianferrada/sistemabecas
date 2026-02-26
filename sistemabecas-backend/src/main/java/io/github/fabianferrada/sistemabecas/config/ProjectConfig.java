@@ -27,14 +27,7 @@ public class ProjectConfig {
 	}
 	
 	@Bean
-	JwtAuthenticationProvider jwtAuthProvider(NimbusJwtDecoder decoder) {
-		return new JwtAuthenticationProvider(decoder);
-	}
-	
-	@Bean
-	SecurityFilterChain securityFilterChain(HttpSecurity http, JwtAuthenticationProvider authProvider) throws Exception {
-		http.authenticationProvider(authProvider);
-		
+	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http.authorizeHttpRequests(
 			c -> c.requestMatchers(
 				"/api/apelacion/**",
