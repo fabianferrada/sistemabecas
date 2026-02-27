@@ -27,9 +27,6 @@ public class UsuarioBecasDetailsService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) {
 		UsuarioBecasDetails userDetails;
 		
-		// TODO
-		System.out.println("Quitar!!! (la wea funciona conchetumareeeeee)");
-		
 		// Primero testeamos si se trata de un estudiante
 		List<Estudiante> estudiante = estudianteRepository.findByEmail(username);
 		

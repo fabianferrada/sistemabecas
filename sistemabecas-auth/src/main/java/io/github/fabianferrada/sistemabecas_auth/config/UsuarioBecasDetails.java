@@ -19,9 +19,8 @@ public class UsuarioBecasDetails implements UserDetails {
 	
 	@Override
 	public List<GrantedAuthority> getAuthorities() {
-		List<GrantedAuthority> authorities = Arrays.asList();
-		
-		authorities.add(new UsuarioBecasAuthority(role));
+		UsuarioBecasAuthority authority = new UsuarioBecasAuthority(role);
+		List<GrantedAuthority> authorities = Arrays.asList(authority);
 		
 		return authorities;
 	}
