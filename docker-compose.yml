@@ -24,6 +24,19 @@ services:
             - ./uploads:/uploads
         depends_on:
             - db
+            
+    auth:
+        container_name: sistemabecas-auth
+        build: ./sistemabecas-auth
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            JWT_TOKEN: ${JWT_TOKEN}
+        ports:
+            - 7070:8080
+        depends_on:
+            - db
+            - backend
     
     frontend:
         container_name: sistemabecas-frontend
