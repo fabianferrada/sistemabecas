@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 
 export enum State {
 	Login,
-	Register
+	Register,
+	Applications
 }
 
 @Injectable({

@@ -4,10 +4,11 @@ import { State, Globalstate } from './services/globalstate';
 
 import { StudentLogin } from './student/login/login';
 import { StudentRegister } from './student/register/register';
+import { StudentApplications } from './student/applications/applications';
 
 @Component({
   selector: 'app-root',
-  imports: [ StudentLogin, StudentRegister ],
+  imports: [ StudentLogin, StudentRegister, StudentApplications ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

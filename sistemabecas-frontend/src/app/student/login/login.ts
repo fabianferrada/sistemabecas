@@ -15,4 +15,9 @@ export class StudentLogin {
 		// Nada por ahora
 		this.globalState.currentState = State.Register;
 	}
+	
+	public makeLogin() {
+		// Nada por ahora
+		this.globalState.currentState = State.Applications;
+	}
 }
