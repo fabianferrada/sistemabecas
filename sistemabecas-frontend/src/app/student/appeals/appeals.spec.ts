@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Appeal } from './appeal';
+import { Appeals } from './appeals';
 
-describe('Appeal', () => {
-  let component: Appeal;
-  let fixture: ComponentFixture<Appeal>;
+describe('Appeals', () => {
+  let component: Appeals;
+  let fixture: ComponentFixture<Appeals>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Appeal]
+      imports: [Appeals]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Appeal);
+    fixture = TestBed.createComponent(Appeals);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

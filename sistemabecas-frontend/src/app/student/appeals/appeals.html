@@ -1,0 +1,16 @@
+@if (appealsService.hasAppeals()) {
+	<div class="row ms-1 justify-content-center">
+		@for (appeal of appealsService.getAppeals(); track appeal.id) {
+			<div class="card w-25 me-1 mb-1">
+				<h5 class="card-title">{{appeal.titulo}}</h5>
+				<h6 class="card-subtitle mb-2 text-muted">{{appeal.postulacion.beca.nombre}}</h6>
+				<p class="card-text">{{appeal.descripcion}}</p>
+				<button class="btn btn-danger">Eliminar</button>
+			</div>
+		}
+	</div>
+} @else {
+	<div class="row text-center">
+		<h1>No hay postulaciones</h1>
+	</div>
+}
