@@ -1,10 +1,11 @@
 @if (globalState.currentState == State.Login) {
 	<student-login></student-login>
-} @else {
+} @else if (globalState.currentState == State.Register) {
+	<student-register></student-register>
+}
+@else {
 	<student-navbar></student-navbar>
-	@if (globalState.currentState == State.Register) {
-		<student-register></student-register>
-	} @else if (globalState.currentState == State.Applications) {
+	@if (globalState.currentState == State.Applications) {
 		<student-applications></student-applications>
 	} @else if (globalState.currentState == State.User) {
 		<student-profile></student-profile>

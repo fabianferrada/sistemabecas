@@ -4,27 +4,27 @@
 		<ul class="navbar-nav mr-auto">
 			@if (globalState.currentState != State.Applications) {
 				<li class="nav-item active">
-					<button (click)="goApplications()" class="btn btn-link nav-link">Mis postulaciones</button>
+					<button (click)="globalState.goApplications()" class="btn btn-link nav-link">Mis postulaciones</button>
 				</li>				
 			}
 			@if (globalState.currentState != State.User) {
 				<li class="nav-item active">
-					<button (click)="goProfile()" class="btn btn-link nav-link">Revisar perfil</button>
+					<button (click)="globalState.goProfile()" class="btn btn-link nav-link">Revisar perfil</button>
 				</li>
 			}
 			@if (globalState.currentState != State.Scholarships) {
 				<li class="nav-item active">
-					<button (click)="goScholarships()" class="btn btn-link nav-link">Postular a becas</button>
+					<button (click)="globalState.goScholarships()" class="btn btn-link nav-link">Postular a becas</button>
 				</li>
 			}
 			@if (globalState.currentState != State.Appeals) {
 				<li class="nav-item active">
-					<button (click)="goAppeals()" class="btn btn-link nav-link">Ver apelaciones</button>
+					<button (click)="globalState.goAppeals()" class="btn btn-link nav-link">Ver apelaciones</button>
 				</li>
 			}
 		</ul>
 	</div>
 	<span class="navbar-text">
-		<button (click)="goLogin()" type="button" class="btn btn-secondary me-1">Cerrar sesión</button>
+		<button (click)="globalState.goLogin()" type="button" class="btn btn-secondary me-1">Cerrar sesión</button>
 	</span>
 </nav>
