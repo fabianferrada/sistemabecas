@@ -35,7 +35,7 @@ export class Applications {
 	]
 	
 	public hasApplications(): boolean {
-		return true;
+		return false;
 	}
 	
 	public getApplications() {

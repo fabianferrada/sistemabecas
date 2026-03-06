@@ -8,10 +8,32 @@ import { State, Globalstate } from '../../services/globalstate';
   styleUrl: './navbar.css',
 })
 export class StudentNavbar {
-	constructor(public globalstate: Globalstate) {}
+	State = State;
+	
+	constructor(public globalState: Globalstate) {}
 	
 	public goLogin() {
-		// Nada por ahora
-		this.globalstate.currentState = State.Login;
+		// TODO
+		this.globalState.currentState = State.Login;
+	}
+	
+	public goProfile() {
+		// TODO
+		this.globalState.currentState = State.User;
+	}
+	
+	public goApplications() {
+		// TODO
+		this.globalState.currentState = State.Applications;
+	}
+	
+	public goScholarships() {
+		// TODO
+		this.globalState.currentState = State.Scholarships;
+	}
+	
+	public goAppeals() {
+		// TODO
+		this.globalState.currentState = State.Appeals;
 	}
 }

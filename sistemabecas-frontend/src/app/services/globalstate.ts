@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
 
 export enum State {
+	Appeals,
+	Applications,
 	Login,
 	Register,
-	Applications
+	Scholarships,
+	User
 }
 
 @Injectable({

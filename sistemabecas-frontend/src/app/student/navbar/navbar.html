@@ -2,15 +2,26 @@
 	<button class="btn btn-link navbar-brand">Sistema de Postulación de Becas</button>
 	<div class="collapse navbar-collapse">
 		<ul class="navbar-nav mr-auto">
-			<li class="nav-item active">
-				<button class="btn btn-link nav-link">Revisar perfil</button>
-			</li>
-			<li class="nav-item active">
-				<button class="btn btn-link nav-link">Postular a becas</button>
-			</li>
-			<li class="nav-item active">
-				<button class="btn btn-link nav-link">Ver apelaciones</button>
-			</li>
+			@if (globalState.currentState != State.Applications) {
+				<li class="nav-item active">
+					<button (click)="goApplications()" class="btn btn-link nav-link">Mis postulaciones</button>
+				</li>				
+			}
+			@if (globalState.currentState != State.User) {
+				<li class="nav-item active">
+					<button (click)="goProfile()" class="btn btn-link nav-link">Revisar perfil</button>
+				</li>
+			}
+			@if (globalState.currentState != State.Scholarships) {
+				<li class="nav-item active">
+					<button (click)="goScholarships()" class="btn btn-link nav-link">Postular a becas</button>
+				</li>
+			}
+			@if (globalState.currentState != State.Appeals) {
+				<li class="nav-item active">
+					<button (click)="goAppeals()" class="btn btn-link nav-link">Ver apelaciones</button>
+				</li>
+			}
 		</ul>
 	</div>
 	<span class="navbar-text">

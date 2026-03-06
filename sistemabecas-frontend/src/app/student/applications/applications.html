@@ -1,4 +1,3 @@
-<student-navbar></student-navbar>
 @if (applicationsService.hasApplications()) {
 	<div class="row ms-1 justify-content-center">
 		@for (application of applicationsService.getApplications(); track application.id) {
@@ -14,5 +13,7 @@
 		}
 	</div>
 } @else {
-	No tiene postulaciones
+	<div class="row text-center">
+		<h1>No hay postulaciones</h1>
+	</div>
 }
