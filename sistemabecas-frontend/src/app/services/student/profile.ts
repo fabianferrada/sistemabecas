@@ -31,4 +31,8 @@ export class Profile {
 	public getUserContrasena() {
 		return this.userData.contrasena;
 	}
+	
+	public setUserData(data: any) {
+		this.userData = data;
+	}
 }

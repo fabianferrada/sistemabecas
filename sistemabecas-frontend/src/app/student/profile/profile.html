@@ -4,27 +4,27 @@
 		<form>
 			<div class="mb-2">
 				<label for="nombres" class="form-label">Nombres:</label>
-				<input type="text" class="form-control" id="nombres"  value={{profileService.getUserNombres()}} >
+				<input type="text" class="form-control" id="nombres" [(ngModel)]="nombres" name="nombres" >
 			</div>
 			<div class="mb-2">
 				<label for="apellidos" class="form-label">Apellidos:</label>
-				<input type="text" class="form-control" id="apellidos"  value={{profileService.getUserApellidos()}} >
+				<input type="text" class="form-control" id="apellidos" [(ngModel)]="apellidos" name="apellidos" >
 			</div>
 			<div class="mb-2">
 				<label for="rut" class="form-label">RUT:</label>
-				<input type="email" class="form-control" id="rut" value={{profileService.getUserRut()}}>
+				<input type="email" class="form-control" id="rut" [(ngModel)]="rut" name="rut">
 			</div>
 			<div class="mb-2">
 				<label for="correo" class="form-label">Correo electrónico:</label>
-				<input type="email" class="form-control" id="correo"  value={{profileService.getUserEmail()}} >
+				<input type="email" class="form-control" id="correo" [(ngModel)]="email" name="email">
 			</div>
 			<div class="mb-2">
 				<label for="contrasena" class="form-label">Contraseña:</label>
-				<input type="password" class="form-control" id="contrasena"  value={{profileService.getUserContrasena()}} >
+				<input type="password" class="form-control" id="contrasena" [(ngModel)]="contrasena" name="contrasena" >
 			</div>
 			<div class="d-flex justify-content-between">
-				<button type="submit" class="btn btn-primary">Editar perfil</button>
-				<button type="submit" class="btn btn-danger">Eliminar perfil</button>
+				<button (click)="editUser()" type="submit" class="btn btn-primary">Editar perfil</button>
+				<button class="btn btn-danger">Eliminar perfil</button>
 			</div>
 		</form>
 	</div>
