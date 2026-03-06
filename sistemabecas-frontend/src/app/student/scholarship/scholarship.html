@@ -1,1 +1,16 @@
-<p>scholarship works!</p>
+@if (scholarshipService.hasScholarships()) {
+	<div class="row ms-1 justify-content-center">
+		@for (scholarship of scholarshipService.getScholarships(); track scholarship.id) {
+			<div class="card w-25 me-1 mb-1">
+				<h5 class="card-title">{{scholarship.nombre}}</h5>
+				<h6 class="card-subtitle mb-2 text-muted">Fechas: {{ scholarship.fechaminimapostulacion }} - {{ scholarship.fechamaximapostulacion }}</h6>
+				<p class="card-text">{{scholarship.descripcion}}</p>
+				<button class="btn btn-info">Postular</button>
+			</div>
+		}
+	</div>
+} @else {
+	<div class="row text-center">
+		<h1>No hay postulaciones</h1>
+	</div>
+}

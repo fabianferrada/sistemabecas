@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { ScholarshipService } from '../../services/student/scholarship';
+
 @Component({
   selector: 'student-scholarship',
   imports: [],
@@ -7,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './scholarship.css',
 })
 export class Scholarship {
-
+	constructor(public scholarshipService: ScholarshipService) {}
 }
