@@ -7,10 +7,13 @@ import { StudentLogin } from './student/login/login';
 import { StudentNavbar } from './student/navbar/navbar';
 import { StudentProfile } from './student/profile/profile';
 import { StudentRegister } from './student/register/register';
+import { Scholarship } from './student/scholarship/scholarship';
 
 @Component({
   selector: 'app-root',
-  imports: [ StudentLogin, StudentRegister, StudentApplications, StudentNavbar, StudentProfile ],
+  imports: [
+	StudentLogin, StudentRegister, StudentApplications, StudentNavbar, StudentProfile, Scholarship
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

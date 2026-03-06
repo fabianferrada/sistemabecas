@@ -9,5 +9,7 @@
 		<student-applications></student-applications>
 	} @else if (globalState.currentState == State.User) {
 		<student-profile></student-profile>
+	} @else if (globalState.currentState == State.Scholarships) {
+		<student-scholarship></student-scholarship>
 	}
 }
