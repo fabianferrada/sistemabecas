@@ -1,1 +1,5 @@
-<student-login></student-login>
+@if (globalState.currentState == State.Login) {
+	<student-login></student-login>
+} @else if (globalState.currentState == State.Register) {
+	<student-register></student-register>
+}
