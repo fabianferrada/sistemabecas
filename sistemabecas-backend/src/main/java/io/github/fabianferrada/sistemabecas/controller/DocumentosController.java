@@ -18,7 +18,7 @@ import io.github.fabianferrada.sistemabecas.repository.BecaRepository;
 import io.github.fabianferrada.sistemabecas.repository.DocumentosRepository;
 
 @Controller
-@RequestMapping("/api/documentos")
+@RequestMapping("/documentos")
 public class DocumentosController {
 	@Autowired
 	private DocumentosRepository documentosRepository;

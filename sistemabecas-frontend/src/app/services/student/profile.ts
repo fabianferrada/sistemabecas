@@ -12,6 +12,15 @@ export class Profile {
 		contrasena: "87399443"
 	};
 	
+	public login(email: string, password: string) {
+		/*
+		const loginRequest: Request = new Request(url + '/auth/api/estudiante/login', {
+			method: 'POST',
+			headers: headers
+		});
+		*/
+	}
+	
 	public getUserNombres() {
 		return this.userData.nombres;
 	}

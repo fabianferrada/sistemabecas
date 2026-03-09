@@ -19,7 +19,7 @@ import io.github.fabianferrada.sistemabecas.repository.EstudianteRepository;
 import io.github.fabianferrada.sistemabecas.repository.PostulacionRepository;
 
 @Controller
-@RequestMapping("/api/apelacion")
+@RequestMapping("/apelacion")
 public class ApelacionController {
 	@Autowired
 	private ApelacionRepository apelacionRepository;

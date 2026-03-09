@@ -21,7 +21,7 @@ import io.github.fabianferrada.sistemabecas_auth.dto.LoginDto;
 import io.github.fabianferrada.sistemabecas_auth.repository.AdministradorRepository;
 
 @Controller
-@RequestMapping("/api/administrador")
+@RequestMapping("/administrador")
 public class AdministradorController {
 	@Autowired
 	private AdministradorRepository administradorRepository;

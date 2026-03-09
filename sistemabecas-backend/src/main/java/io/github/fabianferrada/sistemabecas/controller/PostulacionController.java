@@ -21,7 +21,7 @@ import io.github.fabianferrada.sistemabecas.repository.EstudianteRepository;
 import io.github.fabianferrada.sistemabecas.repository.PostulacionRepository;
 
 @Controller
-@RequestMapping("/api/postulacion")
+@RequestMapping("/postulacion")
 public class PostulacionController {
 	@Autowired
 	private PostulacionRepository postulacionRepository;

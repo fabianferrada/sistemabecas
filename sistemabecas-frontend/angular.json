@@ -59,6 +59,9 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+			  "allowedHosts": ["frontend"]
+		  },
           "configurations": {
             "production": {
               "buildTarget": "sistemabecas-frontend:build:production"

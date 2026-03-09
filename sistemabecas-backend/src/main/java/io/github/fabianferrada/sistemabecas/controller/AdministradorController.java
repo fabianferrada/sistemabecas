@@ -13,7 +13,7 @@ import io.github.fabianferrada.sistemabecas.model.Administrador;
 import io.github.fabianferrada.sistemabecas.repository.AdministradorRepository;
 
 @Controller
-@RequestMapping("/api/administrador")
+@RequestMapping("/administrador")
 public class AdministradorController {
 	@Autowired
 	private AdministradorRepository administradorRepository;
