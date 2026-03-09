@@ -3,7 +3,7 @@
 		@for (application of applicationsService.getApplications(); track application.id) {
 			<div class="card w-25 me-1 mb-1">
 				<h5 class="card-title">{{application.beca.nombre}}</h5>
-				<h6 class="card-subtitle mb-2 text-muted">{{ capitalize(application.estado) }}</h6>
+				<h6 class="card-subtitle mb-2 text-muted">Estado: {{ capitalize(application.estado) }}</h6>
 				<p class="card-text">{{application.beca.descripcion}}</p>
 				<button class="btn btn-info">Mostrar postulación</button>
 				@if (application.estado == "rechazada") {
