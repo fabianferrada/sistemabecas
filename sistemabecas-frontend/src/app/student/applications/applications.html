@@ -17,11 +17,24 @@
 									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cancelar"></button>
 								</div>
 								<div class="modal-body">
-									contenido
+									<form>
+										<div class="form-outline mb-4">
+											<label for="nombreBeca" class="form-label">Nombre de la beca:</label>
+											<input type="text" class="form-control" id="nombreBeca" disabled="true" value="{{ application.beca.nombre }}" />
+										</div>
+										<div class="form-outline mb-4">
+											<label for="razonApelacion" class="form-label">Razón:</label>
+											<input type="text" class="form-control" id="razonApelacion" placeholder="Razón por la que se va a apelar" />
+										</div>
+										<div class="form-outline mb-4">
+											<label for="descripcionApelacion" class="form-label">Descripción</label>
+											<textarea class="form-control" id="descripcionApelacion" rows="3"></textarea>
+										</div>
+									</form>
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-									<button type="button" class="btn btn-primary">Enviar apelación</button>
+									<button (click)="appeal()" type="button" class="btn btn-primary">Enviar apelación</button>
 								</div>
 							</div>
 						</div>
