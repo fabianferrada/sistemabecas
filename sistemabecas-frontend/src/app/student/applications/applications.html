@@ -7,7 +7,7 @@
 				<p class="card-text">{{application.beca.descripcion}}</p>
 				<button class="btn btn-info">Mostrar postulación</button>
 				@if (application.estado == "rechazada") {
-					<button class="btn btn-link">Apelar</button>
+					<button (click)="appeal()" class="btn btn-link">Apelar</button>
 				}
 			</div>
 		}

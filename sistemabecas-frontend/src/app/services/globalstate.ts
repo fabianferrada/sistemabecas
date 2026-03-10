@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 export enum State {
 	Appeals,
+	Appeal,
 	Applications,
 	Login,
 	Register,
@@ -20,6 +21,11 @@ export class Globalstate {
 		this.currentState = State.Login;
 	}
 	
+	public goAppeal() {
+		// TODO
+		this.currentState = State.Appeal;
+	}
+	
 	public goProfile() {
 		// TODO
 		this.currentState = State.User;
@@ -28,6 +34,10 @@ export class Globalstate {
 	public goApplications() {
 		// TODO
 		this.currentState = State.Applications;
+	}
+	
+	public goRegister() {
+		this.currentState = State.Register;
 	}
 	
 	public goScholarships() {

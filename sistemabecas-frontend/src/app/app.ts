@@ -9,11 +9,13 @@ import { StudentProfile } from './student/profile/profile';
 import { StudentRegister } from './student/register/register';
 import { Scholarship } from './student/scholarship/scholarship';
 import { StudentAppeals } from './student/appeals/appeals';
+import { StudentAppeal } from './student/appeal/appeal';
 
 @Component({
   selector: 'app-root',
   imports: [
 	StudentAppeals,
+	StudentAppeal,
 	StudentLogin,
 	StudentRegister,
 	StudentApplications,

@@ -13,10 +13,10 @@
 			<div class="col-xl-4 col-sm-4">			
 				<form>
 					<div class="form-outline mb-4">
-						<input type="email" class="form-control" placeholder="Correo electrónico" />
+						<input type="email" class="form-control" [(ngModel)]="correo" name="correo" placeholder="Correo electrónico" />
 					</div>
 					<div class="form-outline mb-4">
-						<input type="password" class="form-control" placeholder="Contraseña" />
+						<input type="password" class="form-control" [(ngModel)]="contrasena" name="contrasena" placeholder="Contraseña" />
 					</div>
 					<div class="row mb-4">
 						<button type="button" (click)="makeLogin()" class="btn btn-primary btn-block">Iniciar sesión</button>
