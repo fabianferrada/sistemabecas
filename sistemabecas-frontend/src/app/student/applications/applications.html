@@ -20,15 +20,15 @@
 									<form>
 										<div class="form-outline mb-4">
 											<label for="nombreBeca" class="form-label">Nombre de la beca:</label>
-											<input type="text" class="form-control" id="nombreBeca" disabled="true" value="{{ application.beca.nombre }}" />
+											<input type="text" class="form-control" name="nombreBeca" id="nombreBeca" disabled="true" value="{{ application.beca.nombre }}" />
 										</div>
 										<div class="form-outline mb-4">
 											<label for="razonApelacion" class="form-label">Razón:</label>
-											<input type="text" class="form-control" id="razonApelacion" placeholder="Razón por la que se va a apelar" />
+											<input type="text" class="form-control" name="razonApelacion" id="razonApelacion" [(ngModel)]="razonApelacion" placeholder="Razón por la que se va a apelar" />
 										</div>
 										<div class="form-outline mb-4">
 											<label for="descripcionApelacion" class="form-label">Descripción</label>
-											<textarea class="form-control" id="descripcionApelacion" rows="3"></textarea>
+											<textarea class="form-control" name="descripcionApelacion" id="descripcionApelacion" rows="3" [(ngModel)]="descripcionApelacion"></textarea>
 										</div>
 									</form>
 								</div>
