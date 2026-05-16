@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+
 import javax.crypto.spec.SecretKeySpec;
 
 import io.github.fabianferrada.sistemabecas_auth.dto.LoginDto;
@@ -64,11 +67,16 @@ public class EstudianteController {
 		}
 		
 		LoginToken loginData = new LoginToken();
+		Long date = LocalDateTime
+				.now()
+				.plusDays(7)
+				.toEpochSecond(ZoneOffset.UTC);
 		
 		loginData.jwtToken = jwtEncoder.encode(
 				JwtEncoderParameters.from(
 						JwtClaimsSet.builder()
 							.claim("scope", "estudiante")
+							.claim("exp", date)
 							.build()
 					)
 				).getTokenValue();

@@ -27,17 +27,25 @@ public class ProjectConfig {
 	}
 	
 	@Bean
-	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+	JwtAuthenticationProvider jwtAuthProvider(NimbusJwtDecoder decoder) {
+		return new JwtAuthenticationProvider(decoder);
+	}	
+
+	@Bean
+	SecurityFilterChain securityFilterChain(HttpSecurity http, JwtAuthenticationProvider authProvider) throws Exception {
+		http.authenticationProvider(authProvider);
+		
 		http.authorizeHttpRequests(
 			c -> c.requestMatchers(
-				"/api/apelacion/**",
-				"/api/beca/**",
-				"/api/docpostulacion/**",
-				"/api/documentos/**",
-				"/api/estudiante/**",
-				"/api/postulacion/**"
+				"/apelacion/**",
+				"/beca/**",
+				"/docpostulacion/**",
+				"/documentos/**",
+				"/estudiante/**",
+				"/postulacion/**"
 			).hasAuthority("SCOPE_estudiante")
 			.requestMatchers("/api/administrador/**").hasAuthority("SCOPE_administrador")
+			.requestMatchers("/error").permitAll() // Debugging
 		)
 			.oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults()));
 		

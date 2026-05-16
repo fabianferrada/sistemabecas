@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import javax.crypto.spec.SecretKeySpec;
 
 import io.github.fabianferrada.sistemabecas_auth.dto.LoginDto;
@@ -61,11 +63,16 @@ public class AdministradorController {
 		}
 		
 		LoginToken loginData = new LoginToken();
+		long date = LocalDateTime
+				.now()
+				.plusDays(7)
+				.toEpochSecond(ZoneOffset.UTC);
 		
 		loginData.jwtToken = jwtEncoder.encode(
 				JwtEncoderParameters.from(
 						JwtClaimsSet.builder()
 						.claim("scope", "administrador")
+						.claim("exp", date)
 						.build()
 					)
 				).getTokenValue();
