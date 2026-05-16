@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.crypto.spec.SecretKeySpec;
 
 import io.github.fabianferrada.sistemabecas_auth.dto.LoginDto;
+import io.github.fabianferrada.sistemabecas_auth.dto.LoginToken;
 import io.github.fabianferrada.sistemabecas_auth.repository.AdministradorRepository;
 
 @Controller
@@ -47,7 +48,7 @@ public class AdministradorController {
 	}
 	
 	@PostMapping("/login")
-	public @ResponseBody String login(@RequestBody LoginDto loginDto) {
+	public @ResponseBody LoginToken login(@RequestBody LoginDto loginDto) {
 		UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
 			loginDto.email,
 			loginDto.password
@@ -59,12 +60,16 @@ public class AdministradorController {
 			return null;
 		}
 		
-		return jwtEncoder.encode(
-			JwtEncoderParameters.from(
-				JwtClaimsSet.builder()
-				.claim("scope", "administrador")
-				.build()
-			)
-		).getTokenValue();
+		LoginToken loginData = new LoginToken();
+		
+		loginData.jwtToken = jwtEncoder.encode(
+				JwtEncoderParameters.from(
+						JwtClaimsSet.builder()
+						.claim("scope", "administrador")
+						.build()
+					)
+				).getTokenValue();
+		
+		return loginData;
 	}
 }

@@ -19,6 +19,7 @@ import java.util.List;
 import javax.crypto.spec.SecretKeySpec;
 
 import io.github.fabianferrada.sistemabecas_auth.dto.LoginDto;
+import io.github.fabianferrada.sistemabecas_auth.dto.LoginToken;
 import io.github.fabianferrada.sistemabecas_auth.dto.StandardResponse;
 import io.github.fabianferrada.sistemabecas_auth.model.Estudiante;
 import io.github.fabianferrada.sistemabecas_auth.repository.EstudianteRepository;
@@ -50,7 +51,7 @@ public class EstudianteController {
 	}
 	
 	@PostMapping("/login")
-	public @ResponseBody String login(@RequestBody LoginDto loginDto) {
+	public @ResponseBody LoginToken login(@RequestBody LoginDto loginDto) {
 		UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
 			loginDto.email,
 			loginDto.password
@@ -62,13 +63,17 @@ public class EstudianteController {
 			return null;
 		}
 		
-		return jwtEncoder.encode(
-			JwtEncoderParameters.from(
-				JwtClaimsSet.builder()
-					.claim("scope", "estudiante")
-					.build()
-			)
-		).getTokenValue();
+		LoginToken loginData = new LoginToken();
+		
+		loginData.jwtToken = jwtEncoder.encode(
+				JwtEncoderParameters.from(
+						JwtClaimsSet.builder()
+							.claim("scope", "estudiante")
+							.build()
+					)
+				).getTokenValue();
+		
+		return loginData;
 	}
 	
 	@PostMapping("/registrar")
