@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 
+import { ScholarshipService } from './student/scholarship';
+
 export enum State {
 	Appeals,
 	Applications,
+	Application,
 	Login,
 	Register,
 	Scholarships,
@@ -14,6 +17,8 @@ export enum State {
 })
 export class Globalstate {
 	currentState: State = State.Login;
+
+	constructor(public scholarshipService: ScholarshipService) {}
 
 	public goLogin() {
 		// TODO
@@ -42,5 +47,10 @@ export class Globalstate {
 	public goAppeals() {
 		// TODO
 		this.currentState = State.Appeals;
+	}
+
+	public goApplication(id: number) {
+		this.scholarshipService.setCurrentScholarship(id);
+		this.currentState = State.Application;
 	}
 }

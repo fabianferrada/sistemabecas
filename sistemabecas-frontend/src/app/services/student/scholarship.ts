@@ -4,6 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ScholarshipService {
+	public currentScholarship: number = 0;
+
 	scholarships = [
 		{
 			id: 0,
@@ -27,5 +29,9 @@ export class ScholarshipService {
 	
 	public getScholarships() {
 		return this.scholarships;
+	}
+
+	public setCurrentScholarship(id: number) {
+		this.currentScholarship = id;
 	}
 }

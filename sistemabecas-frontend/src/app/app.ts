@@ -9,17 +9,19 @@ import { StudentProfile } from './student/profile/profile';
 import { StudentRegister } from './student/register/register';
 import { Scholarship } from './student/scholarship/scholarship';
 import { StudentAppeals } from './student/appeals/appeals';
+import { StudentApplication } from './student/application/application';
 
 @Component({
   selector: 'app-root',
   imports: [
-	StudentAppeals,
-	StudentLogin,
-	StudentRegister,
-	StudentApplications,
-	StudentNavbar,
-	StudentProfile,
-	Scholarship
+    StudentAppeals,
+    StudentLogin,
+    StudentRegister,
+    StudentApplication,
+    StudentApplications,
+    StudentNavbar,
+    StudentProfile,
+    Scholarship
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'

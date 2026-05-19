@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { ScholarshipService } from '../../services/student/scholarship';
+import { Globalstate } from '../../services/globalstate';
 
 @Component({
   selector: 'student-scholarship',
@@ -9,5 +10,8 @@ import { ScholarshipService } from '../../services/student/scholarship';
   styleUrl: './scholarship.css',
 })
 export class Scholarship {
-	constructor(public scholarshipService: ScholarshipService) {}
+	constructor(
+    public scholarshipService: ScholarshipService,
+    public globalState: Globalstate
+  ) {}
 }

@@ -5,7 +5,7 @@
 				<h5 class="card-title">{{scholarship.nombre}}</h5>
 				<h6 class="card-subtitle mb-2 text-muted">Fechas: {{ scholarship.fechaminimapostulacion }} - {{ scholarship.fechamaximapostulacion }}</h6>
 				<p class="card-text">{{scholarship.descripcion}}</p>
-				<button class="btn btn-info">Postular</button>
+				<button (click)="globalState.goApplication(scholarship.id)" class="btn btn-info">Postular</button>
 			</div>
 		}
 	</div>
